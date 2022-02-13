@@ -1,4 +1,4 @@
-const path = "../../articles/vendanges2020.md"
+const path = "./articles/vendanges2020.md"
 const fs = require('fs')
 
 fs.readFile(path, 'utf8' , (err, data) => {
