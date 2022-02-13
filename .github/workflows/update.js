@@ -1,5 +1,6 @@
 const path = "./articles/"
 const fs = require('fs')
+import getTitle from 'get-md-title';
 
 fs.readdir(path, function(err, filenames) {
     if (err) {
@@ -13,6 +14,8 @@ fs.readdir(path, function(err, filenames) {
           return;
         }
         console.log(content)
+        console.log(getTitle(content).text)
       });
     });
   });
+
