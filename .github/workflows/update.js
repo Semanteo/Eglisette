@@ -1,7 +1,7 @@
 const path = "./articles/vendanges2020.md"
 const fs = require('fs')
 
-fs.readdir(dirname, function(err, filenames) {
+fs.readdir(path, function(err, filenames) {
     if (err) {
       onError(err);
       return;
