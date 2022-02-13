@@ -1,6 +1,6 @@
 const path = "./articles/"
 const fs = require('fs')
-import getTitle from 'get-md-title';
+const getTitle = require('get-md-title');
 
 fs.readdir(path, function(err, filenames) {
     if (err) {
