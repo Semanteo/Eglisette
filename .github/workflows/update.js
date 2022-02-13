@@ -1,4 +1,4 @@
-const path = "./articles/vendanges2020.md"
+const path = "./articles/"
 const fs = require('fs')
 
 fs.readdir(path, function(err, filenames) {
