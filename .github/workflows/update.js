@@ -20,11 +20,10 @@ const env = {}
 
 function readWrite (callback) {
     let dat;
-    fs.readFile(path_two, 'utf-8', (err, data) => {
+    fs.readFile(path_two, (err, data) => {
         if (err) {
           throw err;
         }
-      console.log(data)
         dat = JSON.parse(data)
         dat["articles"] = [];
       console.log(dat)
