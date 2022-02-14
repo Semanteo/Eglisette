@@ -45,9 +45,11 @@ fs.readdir(path, function(err, filenames) {
         console.log(tags.split(","))
         img_path = article.image.src;
         console.log(date)
-        var contentdos = fs.readFileSync(path_two);
-        console.log(contentdos)
-        const dat = JSON.parse(contentdos)
+        fs.readFile(path_two, 'utf-8', (err, data) => {
+        if (err) {
+          throw err;
+        }
+        const dat = JSON.parse(data)
         dat["articles"].push({
      "date":`${date}`,
      "description": `${desc}`,
@@ -57,12 +59,14 @@ fs.readdir(path, function(err, filenames) {
      "url": `${path + filename} `,
      "tags": tags.split(",")
         });
-         let data = JSON.stringify(dat, null, 2);
+         let dataa = JSON.stringify(dat, null, 2);
          console.log(dat["articles"])
-              fs.writeFileSync(path_two, data, (err) => {
-                    if (err)
-                    console.log(err);
-                });
+         fs.writeFile(path_two, dataa, 'utf-8', (err) => {
+          if (err) { 
+            throw err;
+          }
+          console.log('README update complete.');
+        });
       });
     });
   });
