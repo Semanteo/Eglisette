@@ -1,10 +1,11 @@
 const path = "./articles/"
 const path_two = "./routing.json"
 const fs = require('fs')
-const getTitle = require('get-md-title');
-const getDesc = require('get-md-desc');
+const extract = require('article-data');
 var desc;
 var title;
+var date;
+var img_path;
 fs.readdir(path, function(err, filenames) {
     if (err) {
       console.log(err);
@@ -17,9 +18,11 @@ fs.readdir(path, function(err, filenames) {
           return;
         }
         console.log(content);
-        title = getTitle(content).text;
-        desc = getDesc(content).text;
-          
+        const article = extract(content, 'DD MMMM YYYY', 'en');
+        title = article.title.text;
+        desc = article.desc.text;
+        date = article.date.text;
+        img_path = article.image.src;
           fs.readFile(path_two, 'utf-8', function(err, content) {
         if (err) {
           console.log(err);
@@ -27,11 +30,11 @@ fs.readdir(path, function(err, filenames) {
         }
         content = JSON.parse(content)
         content["articles"].push({
-     "date":1624129211326,
+     "date":`${new Date(date)}`,
      "description": `${desc}`,
      "title": `${title}`,
      "slug": `${title.toLowerCase().replace(" ","").replace(" ","")}`,
-     "image": "https://static.wixstatic.com/media/32b942_93b5b7494fe94c7b873dfe5ea71710cc~mv2_d_2000_3008_s_2.jpg/v1/fill/w_1903,h_543,al_c,q_85,usm_0.66_1.00_0.01/32b942_93b5b7494fe94c7b873dfe5ea71710cc~mv2_d_2000_3008_s_2.webp",
+     "image": `${img_path}`,
      "url": `${path + filename} `,
      "tags": ["vendanges"]
         });
