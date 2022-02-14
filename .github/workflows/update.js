@@ -44,11 +44,7 @@ fs.readdir(path, function(err, filenames) {
         console.log(tags)
         console.log(tags.split(","))
         img_path = article.image.src;
-          fs.readFileSync(path_two, function(err, content) {
-        if (err) {
-          console.log(err);
-          return;
-        }
+        let content = fs.readFileSync(path_two);
         console.log(content)
         content = JSON.parse(content)
         content["articles"].push({
@@ -66,7 +62,6 @@ fs.readdir(path, function(err, filenames) {
                     if (err)
                     console.log(err);
                 });
-      });
       });
     });
   });
