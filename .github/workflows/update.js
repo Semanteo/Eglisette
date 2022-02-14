@@ -24,10 +24,9 @@ function readWrite (callback) {
         if (err) {
           throw err;
         }
-      console.log("DATA:" ,data)
+
         dat = JSON.parse(data)
-        dat["articles"] = [];
-      console.log(dat)
+            console.log("DATA:" ,dat)
    
 fs.readdir(path, function(err, filenames) {
     if (err) {
@@ -35,7 +34,6 @@ fs.readdir(path, function(err, filenames) {
       return;
     }
     filenames.forEach(function(filename) {
-      console.log(filename)
       fs.readFile(path + filename, 'utf-8', function(err, content) {
         if (err) {
           console.log(err);
@@ -60,22 +58,20 @@ fs.readdir(path, function(err, filenames) {
             "tags": tags.split(",")
                });
         dat["articles"] = new_articles;
-        console.log(dat)
+        console.log("DATA FINAL : ", dat)
     });
   });
 });
-  console.log(dat)
  callback(dat);
     });
 }
 
 readWrite(function (dat) {
-  console.log(dat)
   wri(dat)
 });
 
 function wri(dat) {
-console.log(dat);
+console.log("DATAAAA :", dat);
   const dataa = JSON.stringify(dat, null, 2);
   fs.writeFile(path_two, dataa, 'utf-8', (err) => {
    if (err) { 
