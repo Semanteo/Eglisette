@@ -21,7 +21,8 @@ fs.readdir(path, function(err, filenames) {
         const article = extract(content, 'DD MMMM YYYY', 'fr');
         title = article.title.text;
         desc = article.desc.text;
-        date = article.date.text;
+        date = article.date.unix;
+        console.log(article.date, article.date.text,article.date.unix,article.date.moment)
         img_path = article.image.src;
           fs.readFile(path_two, 'utf-8', function(err, content) {
         if (err) {
