@@ -49,7 +49,8 @@ fs.readdir(path, function(err, filenames) {
         tags = tags.split(":")
         tags.shift()
         tags = tags[0].split(",")
-        tags = tags.forEach(element => element.replace(/\s/g, ''))
+        console.log(tags)
+        tags.forEach(element => element.replace(/\s/g, ''))
         console.log(tags)
         img_path = article.image.src;
         new_articles.push({
