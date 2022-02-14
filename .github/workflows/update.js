@@ -6,6 +6,18 @@ var desc;
 var title;
 var date;
 var img_path;
+
+const opts = {
+  level: 1,
+  excerpt: 5
+}
+
+const md = require('markdown-it')()
+  .use(require('markdown-it-title'), opts)
+const env = {}
+
+
+
 fs.readdir(path, function(err, filenames) {
     if (err) {
       console.log(err);
@@ -17,12 +29,13 @@ fs.readdir(path, function(err, filenames) {
           console.log(err);
           return;
         }
+        md.render(content, env)
+        console.log(env)
         console.log(content);
         const article = extract(content, 'DD MMMM YYYY', 'fr');
         title = article.title.text;
         desc = article.desc.text;
         date = article.date.unix;
-        console.log(article.date, article.date.text,article.date.unix,article.date.moment)
         img_path = article.image.src;
           fs.readFile(path_two, 'utf-8', function(err, content) {
         if (err) {
