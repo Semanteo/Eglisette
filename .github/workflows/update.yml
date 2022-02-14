@@ -27,10 +27,7 @@ jobs:
       
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: npm i get-md-title
-  
-      - name: Run a one-line script
-        run : npm install get-md-desc
+        run: npm i article-data
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
