@@ -15,7 +15,7 @@ const opts = {
 
 const md = require('markdown-it')()
   .use(require('markdown-it-title'), opts)
-const env = {}
+var env = {}
 
 
 let dat;
