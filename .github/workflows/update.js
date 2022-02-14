@@ -46,6 +46,8 @@ fs.readdir(path, function(err, filenames) {
         tags = env.excerpt[3];
         tags = tags.split(":")
         tags.shift()
+        console.log(tags)
+        console.log(tags.split(","))
         img_path = article.image.src;
         new_articles.push({
             "date":`${date}`,
@@ -65,7 +67,6 @@ fs.readdir(path, function(err, filenames) {
 });
 
 function wri(dat) {
-console.log("DATAAAA :", dat);
   const dataa = JSON.stringify(dat, null, 2);
   fs.writeFile(path_two, dataa, 'utf-8', (err) => {
    if (err) { 
