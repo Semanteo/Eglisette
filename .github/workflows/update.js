@@ -38,8 +38,8 @@ fs.readdir(path, function(err, filenames) {
         desc = env.excerpt[0];
         date = env.excerpt[2];
         tags = env.excerpt[3];
-        tags = tags.split(":")
-        console.log(tags)
+        tags = tags.split(":").shift()
+        console.log(tags.split(","))
         img_path = article.image.src;
           fs.readFile(path_two, 'utf-8', function(err, content) {
         if (err) {
@@ -54,7 +54,7 @@ fs.readdir(path, function(err, filenames) {
      "slug": `${title.toLowerCase().replace(" ","-").replace(" ","-").replace(" ","-").replace(" ","-")}`,
      "image": `${img_path}`,
      "url": `${path + filename} `,
-     "tags": ["vendanges"]
+     "tags": tags.split(",")
         });
          let data = JSON.stringify(content, null, 2);
           console.log(content["articles"])
