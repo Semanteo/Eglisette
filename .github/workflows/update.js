@@ -25,26 +25,21 @@ fs.readdir(path, function(err, filenames) {
       return;
     }
     filenames.forEach(function(filename) {
+      console.log(filename)
       fs.readFile(path + filename, 'utf-8', function(err, content) {
         if (err) {
           console.log(err);
           return;
         }
         md.render(content, env)
-        console.log(env)
-        console.log(content);
         const article = extract(content, 'DD MMMM YYYY', 'fr');
         title = env.title;
         desc = env.excerpt[0];
         date = article.date.unix;
         tags = env.excerpt[3];
         tags = tags.split(":")
-        console.log(tags.shift())
         tags = tags.shift()
-        console.log(tags)
-        console.log(tags.split(","))
         img_path = article.image.src;
-        console.log(date)
         fs.readFile(path_two, 'utf-8', (err, data) => {
         if (err) {
           throw err;
