@@ -45,7 +45,7 @@ fs.readdir(path, function(err, filenames) {
         date = article.date.unix;
         tags = env.excerpt[3];
         tags = tags.split(":")
-        tags = tags.shift()
+        tags.shift()
         img_path = article.image.src;
         new_articles.push({
             "date":`${date}`,
