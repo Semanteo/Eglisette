@@ -26,7 +26,6 @@ fs.readdir(path, function(err, filenames) {
           return;
         }
         content = JSON.parse(content)
-        console.log(content["articles"])
         content["articles"].push({
      "date":1624129211326,
      "description": `${desc}`,
@@ -36,8 +35,9 @@ fs.readdir(path, function(err, filenames) {
      "url": `${path + filename} `,
      "tags": ["vendanges"]
         });
+         let data = JSON.stringify(content);
           console.log(content["articles"])
-              fs.writeFile(path_two, content, (err) => {
+              fs.writeFile(path_two, data, (err) => {
                     if (err)
                     console.log(err);
                 });
