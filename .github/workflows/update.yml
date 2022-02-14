@@ -31,4 +31,8 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
+        run: npm i markdown-it-title
+
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
         run: node ./.github/workflows/update.js
