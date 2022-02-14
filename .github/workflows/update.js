@@ -6,6 +6,7 @@ var desc;
 var title;
 var date;
 var img_path;
+var tags;
 
 const opts = {
   level: 1,
@@ -33,9 +34,12 @@ fs.readdir(path, function(err, filenames) {
         console.log(env)
         console.log(content);
         const article = extract(content, 'DD MMMM YYYY', 'fr');
-        title = article.title.text;
-        desc = article.desc.text;
-        date = article.date.unix;
+        title = env.title;
+        desc = env.excerpt[0];
+        date = env.excerpt[2];
+        tags = env.excerpt[3];
+        tags = tags.split(":")
+        console.log(tags)
         img_path = article.image.src;
           fs.readFile(path_two, 'utf-8', function(err, content) {
         if (err) {
