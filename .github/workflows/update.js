@@ -7,7 +7,7 @@ var title;
 var date;
 var img_path;
 var tags;
-
+const new_articles = [];
 const opts = {
   level: 1,
   excerpt: 5
@@ -18,9 +18,9 @@ const md = require('markdown-it')()
 const env = {}
 
 
-async function readWrite (callback) {
+function readWrite (callback) {
     let dat;
-  await fs.readFile(path_two, (err, data) => {
+ fs.readFile(path_two, (err, data) => {
         if (err) {
           throw err;
         }
@@ -28,8 +28,8 @@ async function readWrite (callback) {
         dat = JSON.parse(data)
         dat["articles"] = [];
       console.log(dat)
-    });
-await fs.readdir(path, function(err, filenames) {
+   
+fs.readdir(path, function(err, filenames) {
     if (err) {
       console.log(err);
       return;
@@ -50,7 +50,7 @@ await fs.readdir(path, function(err, filenames) {
         tags = tags.split(":")
         tags = tags.shift()
         img_path = article.image.src;
-        dat["articles"].push({
+        new_articles.push({
             "date":`${date}`,
             "description": `${desc}`,
             "title": `${title}`,
@@ -59,13 +59,17 @@ await fs.readdir(path, function(err, filenames) {
             "url": `${path + filename} `,
             "tags": tags.split(",")
                });
+        dat["articles"] = new_articles;
+        console.log(dat)
     });
   });
 });
   console.log(dat)
-await callback(dat);
+ callback(dat);
+    });
 }
-await readWrite(function (dat) {
+
+readWrite(function (dat) {
   console.log(dat)
   wri(dat)
 });
