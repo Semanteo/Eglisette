@@ -26,7 +26,7 @@ fs.readFile(path_two, 'utf-8', (err, data) => {
     dat["articles"] = [];
 });
 
-async readWrite () {
+async function readWrite () {
 fs.readdir(path, function(err, filenames) {
     if (err) {
       console.log(err);
