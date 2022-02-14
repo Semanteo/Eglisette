@@ -1,17 +1,5 @@
 {
-  "articles": [
-    {
-      "date": "1644796800",
-      "description": "Voici quelques photos des vendanges de l'année 2020 !",
-      "title": "Vendanges 2020",
-      "slug": "vendanges-2020",
-      "image": "https://static.wixstatic.com/media/32b942_9602939df79241dbba1fb3d739432581~mv2.jpg/v1/fill/w_670,h_494,fp_0.50_0.50,q_90/32b942_9602939df79241dbba1fb3d739432581~mv2.webp",
-      "url": "./articles/vendanges2021.md ",
-      "tags": [
-        "Tags "
-      ]
-    }
-  ],
+  "articles": [],
   "tags": [
     {
       "name": "Vendanges",
