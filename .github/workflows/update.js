@@ -20,7 +20,7 @@ fs.readdir(path, function(err, filenames) {
         title = getTitle(content).text;
         desc = getDesc(content).text;
           
-          fs.readFileSync(path_two, 'utf-8', function(err, content) {
+          fs.readFile(path_two, 'utf-8', function(err, content) {
         if (err) {
           console.log(err);
           return;
@@ -35,7 +35,7 @@ fs.readdir(path, function(err, filenames) {
      "url": `${path + filename} `,
      "tags": ["vendanges"]
         });
-         let data = JSON.stringify(content);
+         let data = JSON.stringify(content, null, 2);
           console.log(content["articles"])
               fs.writeFileSync(path_two, data, (err) => {
                     if (err)
