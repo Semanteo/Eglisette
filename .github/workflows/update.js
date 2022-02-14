@@ -44,10 +44,10 @@ fs.readdir(path, function(err, filenames) {
         console.log(tags)
         console.log(tags.split(","))
         img_path = article.image.src;
-        let contentdos = fs.readFileSync(path_two);
+        var contentdos = fs.readFileSync(path_two);
         console.log(contentdos)
-        contentdos = JSON.parse(contentdos)
-        contentdos["articles"].push({
+        const dat = JSON.parse(contentdos)
+        dat["articles"].push({
      "date":`${new Date(date).getTime()}`,
      "description": `${desc}`,
      "title": `${title}`,
@@ -56,8 +56,8 @@ fs.readdir(path, function(err, filenames) {
      "url": `${path + filename} `,
      "tags": tags.split(",")
         },);
-         let data = JSON.stringify(contentdos, null, 2);
-          console.log(contentdos["articles"])
+         let data = JSON.stringify(dat, null, 2);
+          console.log(dat["articles"])
               fs.writeFileSync(path_two, data, (err) => {
                     if (err)
                     console.log(err);
