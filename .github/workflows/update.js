@@ -26,12 +26,13 @@ fs.readFile(path_two, 'utf-8', (err, data) => {
     dat["articles"] = [];
 });
 
+async readWrite () {
 fs.readdir(path, function(err, filenames) {
     if (err) {
       console.log(err);
       return;
     }
-    filenames.forEach(function(filename) {
+    await filenames.forEach(function(filename) {
       console.log(filename)
       fs.readFile(path + filename, 'utf-8', function(err, content) {
         if (err) {
@@ -58,11 +59,14 @@ fs.readdir(path, function(err, filenames) {
                });
     });
   });
-  let dataa = JSON.stringify(dat, null, 2);
-  fs.writeFile(path_two, dataa, 'utf-8', (err) => {
+  await console.log(dat)
+  await let dataa = JSON.stringify(dat, null, 2);
+  await fs.writeFile(path_two, dataa, 'utf-8', (err) => {
    if (err) { 
      throw err;
    }
    console.log('README update complete.');
  });
 });
+}
+readWrite()
