@@ -27,12 +27,12 @@ function readWrite (callback) {
         dat = JSON.parse(data)
         dat["articles"] = [];
     });
-fs.readdir(path, async function(err, filenames) {
+fs.readdir(path, function(err, filenames) {
     if (err) {
       console.log(err);
       return;
     }
-    await filenames.forEach(function(filename) {
+    filenames.forEach(function(filename) {
       console.log(filename)
       fs.readFile(path + filename, 'utf-8', function(err, content) {
         if (err) {
@@ -60,9 +60,13 @@ fs.readdir(path, async function(err, filenames) {
     });
   });
 });
+  console.log(dat)
 callback(dat);
 }
-readWrite(function (dat) {wri(dat)});
+readWrite(function (dat) {
+  console.log(dat)
+  wri(dat)
+});
 
 function wri(dat) {
 console.log(dat);
