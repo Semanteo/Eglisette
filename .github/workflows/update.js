@@ -1,6 +1,7 @@
 const path = "./articles/"
 const fs = require('fs')
 const getTitle = require('get-md-title');
+const getDesc = require('get-md-desc');
 
 fs.readdir(path, function(err, filenames) {
     if (err) {
@@ -15,6 +16,7 @@ fs.readdir(path, function(err, filenames) {
         }
         console.log(content)
         console.log(getTitle(content).text)
+        console.log(getDesc(content).text)
       });
     });
   });
