@@ -50,6 +50,7 @@ fs.readdir(path, function(err, filenames) {
           throw err;
         }
         const dat = JSON.parse(data)
+        dat["articles"] = [];
         dat["articles"].push({
      "date":`${date}`,
      "description": `${desc}`,
