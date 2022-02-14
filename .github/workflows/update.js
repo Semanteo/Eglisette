@@ -26,7 +26,7 @@ fs.readFile(path_two, 'utf-8', (err, data) => {
     dat["articles"] = [];
 });
 
-function readWrite () {
+function readWrite (callback) {
 fs.readdir(path, async function(err, filenames) {
     if (err) {
       console.log(err);
@@ -60,8 +60,9 @@ fs.readdir(path, async function(err, filenames) {
     });
   });
 });
+callback();
 }
-readWrite().then(wri());
+readWrite(function () {wri()});
 
 function wri() {
 console.log(dat);
