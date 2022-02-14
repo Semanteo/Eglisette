@@ -30,10 +30,10 @@ fs.readdir(path, function(err, filenames) {
         }
         content = JSON.parse(content)
         content["articles"].push({
-     "date":`${new Date(date)}`,
+     "date":`${new Date(date).getTime()}`,
      "description": `${desc}`,
      "title": `${title}`,
-     "slug": `${title.toLowerCase().replace(" ","").replace(" ","")}`,
+     "slug": `${title.toLowerCase().replace(" ","-").replace(" ","-").replace(" ","-").replace(" ","-")}`,
      "image": `${img_path}`,
      "url": `${path + filename} `,
      "tags": ["vendanges"]
