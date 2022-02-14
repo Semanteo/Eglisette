@@ -44,11 +44,12 @@ fs.readdir(path, function(err, filenames) {
         console.log(tags)
         console.log(tags.split(","))
         img_path = article.image.src;
+        console.log(date)
         var contentdos = fs.readFileSync(path_two);
         console.log(contentdos)
         const dat = JSON.parse(contentdos)
         dat["articles"].push({
-     "date":`${new Date(date).getTime()}`,
+     "date":`${date}`,
      "description": `${desc}`,
      "title": `${title}`,
      "slug": `${title.toLowerCase().replace(" ","-").replace(" ","-").replace(" ","-").replace(" ","-")}`,
