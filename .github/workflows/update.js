@@ -28,5 +28,6 @@ fs.readdir(path, function(err, filenames) {
           console.log(err);
           return;
         }
+        content = JSON.parse(content)
         console.log(content.lastModified, content["articles"][0].date)
       });
