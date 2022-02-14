@@ -48,6 +48,8 @@ fs.readdir(path, function(err, filenames) {
         tags = env.excerpt[3];
         tags = tags.split(":")
         tags.shift()
+        tags = tags[0].split(",")
+        tags.forEach(element => element.replace(" ","").replace(" ",""))
         console.log(tags)
         console.log(tags[0].split(","))
         img_path = article.image.src;
@@ -58,7 +60,7 @@ fs.readdir(path, function(err, filenames) {
             "slug": `${title.toLowerCase().replace(" ","-").replace(" ","-").replace(" ","-").replace(" ","-")}`,
             "image": `${img_path}`,
             "url": `${path + filename} `,
-            "tags": tags[0].split(",").forEach(element => element.replace(" ","").replace(" ",""))
+            "tags": tags
                });
         dat["articles"] = new_articles;
         console.log("DATA FINAL : ", dat)
