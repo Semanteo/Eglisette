@@ -49,6 +49,7 @@ fs.readdir(path, function(err, filenames) {
           console.log(err);
           return;
         }
+        console.log(content)
         content = JSON.parse(content)
         content["articles"].push({
      "date":`${new Date(date).getTime()}`,
