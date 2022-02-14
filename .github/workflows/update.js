@@ -47,7 +47,7 @@ fs.readdir(path, function(err, filenames) {
         tags = tags.split(":")
         tags.shift()
         console.log(tags)
-        console.log(tags.split(","))
+        console.log(tags[0].split(","))
         img_path = article.image.src;
         new_articles.push({
             "date":`${date}`,
@@ -56,7 +56,7 @@ fs.readdir(path, function(err, filenames) {
             "slug": `${title.toLowerCase().replace(" ","-").replace(" ","-").replace(" ","-").replace(" ","-")}`,
             "image": `${img_path}`,
             "url": `${path + filename} `,
-            "tags": tags.split(",")
+            "tags": tags[0].split(",")
                });
         dat["articles"] = new_articles;
         console.log("DATA FINAL : ", dat)
