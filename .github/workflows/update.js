@@ -65,7 +65,7 @@ await fs.readdir(path, function(err, filenames) {
   console.log(dat)
 await callback(dat);
 }
-readWrite(function (dat) {
+await readWrite(function (dat) {
   console.log(dat)
   wri(dat)
 });
