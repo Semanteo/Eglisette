@@ -18,9 +18,9 @@ const md = require('markdown-it')()
 const env = {}
 
 
-function readWrite (callback) {
+async function readWrite (callback) {
     let dat;
-    fs.readFile(path_two, (err, data) => {
+  await fs.readFile(path_two, (err, data) => {
         if (err) {
           throw err;
         }
@@ -29,7 +29,7 @@ function readWrite (callback) {
         dat["articles"] = [];
       console.log(dat)
     });
-fs.readdir(path, function(err, filenames) {
+await fs.readdir(path, function(err, filenames) {
     if (err) {
       console.log(err);
       return;
@@ -63,7 +63,7 @@ fs.readdir(path, function(err, filenames) {
   });
 });
   console.log(dat)
-callback(dat);
+await callback(dat);
 }
 readWrite(function (dat) {
   console.log(dat)
