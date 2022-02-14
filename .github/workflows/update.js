@@ -58,7 +58,7 @@ fs.readdir(path, function(err, filenames) {
             "slug": `${title.toLowerCase().replace(" ","-").replace(" ","-").replace(" ","-").replace(" ","-")}`,
             "image": `${img_path}`,
             "url": `${path + filename} `,
-            "tags": tags[0].split(",")
+            "tags": tags[0].split(",").forEach(element => element.replace(" ","").replace(" ",""));
                });
         dat["articles"] = new_articles;
         console.log("DATA FINAL : ", dat)
