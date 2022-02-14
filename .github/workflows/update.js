@@ -8,7 +8,6 @@ var date;
 var img_path;
 var tags;
 var dat;
-var dataa;
 
 const opts = {
   level: 1,
@@ -27,7 +26,7 @@ fs.readFile(path_two, 'utf-8', (err, data) => {
     dat["articles"] = [];
 });
 
-async function readWrite () {
+function readWrite () {
 fs.readdir(path, async function(err, filenames) {
     if (err) {
       console.log(err);
@@ -60,8 +59,8 @@ fs.readdir(path, async function(err, filenames) {
                });
     });
   });
-  await console.log(dat)
-  await dataa = JSON.stringify(dat, null, 2);
+  await console.log(dat);
+  const dataa = JSON.stringify(dat, null, 2);
   await fs.writeFile(path_two, dataa, 'utf-8', (err) => {
    if (err) { 
      throw err;
