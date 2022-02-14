@@ -26,6 +26,7 @@ function readWrite (callback) {
         }
         dat = JSON.parse(data)
         dat["articles"] = [];
+      console.log(dat)
     });
 fs.readdir(path, function(err, filenames) {
     if (err) {
