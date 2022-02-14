@@ -36,7 +36,7 @@ fs.readdir(path, function(err, filenames) {
         const article = extract(content, 'DD MMMM YYYY', 'fr');
         title = env.title;
         desc = env.excerpt[0];
-        date = env.excerpt[2];
+        date = article.date.text;
         tags = env.excerpt[3];
         tags = tags.split(":")
         console.log(tags.shift())
