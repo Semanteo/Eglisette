@@ -70,4 +70,3 @@ fs.readdir(path, function(err, filenames) {
       });
     });
   });
-
