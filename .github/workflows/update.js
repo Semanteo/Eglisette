@@ -24,6 +24,7 @@ function readWrite (callback) {
         if (err) {
           throw err;
         }
+      console.log("DATA:" ,data)
         dat = JSON.parse(data)
         dat["articles"] = [];
       console.log(dat)
