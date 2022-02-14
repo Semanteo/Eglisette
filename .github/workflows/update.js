@@ -28,5 +28,5 @@ fs.readdir(path, function(err, filenames) {
           console.log(err);
           return;
         }
-        console.log(content, content.lastModified, content[0])
+        console.log(content, content.lastModified, content["articles"])
       });
