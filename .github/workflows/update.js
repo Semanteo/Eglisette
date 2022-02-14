@@ -34,10 +34,12 @@ fs.readdir(path, function(err, filenames) {
     }
     filenames.forEach(function(filename) {
       fs.readFile(path + filename, 'utf-8', function(err, content) {
+        console.log(filename)
         if (err) {
           console.log(err);
           return;
         }
+        env = {};
         md.render(content, env)
         const article = extract(content, 'DD MMMM YYYY', 'fr');
         title = env.title;
