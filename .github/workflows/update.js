@@ -27,7 +27,7 @@ fs.readFile(path_two, 'utf-8', (err, data) => {
 });
 
 async function readWrite () {
-fs.readdir(path, function(err, filenames) {
+fs.readdir(path, async function(err, filenames) {
     if (err) {
       console.log(err);
       return;
