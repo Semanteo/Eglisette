@@ -18,7 +18,7 @@ fs.readdir(path, function(err, filenames) {
           return;
         }
         console.log(content);
-        const article = extract(content, 'DD MMMM YYYY', 'en');
+        const article = extract(content, 'DD MMMM YYYY', 'fr');
         title = article.title.text;
         desc = article.desc.text;
         date = article.date.text;
