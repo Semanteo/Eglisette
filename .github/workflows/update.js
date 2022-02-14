@@ -7,7 +7,6 @@ var title;
 var date;
 var img_path;
 var tags;
-var dat;
 
 const opts = {
   level: 1,
@@ -18,15 +17,16 @@ const md = require('markdown-it')()
   .use(require('markdown-it-title'), opts)
 const env = {}
 
-fs.readFile(path_two, 'utf-8', (err, data) => {
-    if (err) {
-      throw err;
-    }
-    dat = JSON.parse(data)
-    dat["articles"] = [];
-});
 
 function readWrite (callback) {
+    let dat;
+    fs.readFile(path_two, 'utf-8', (err, data) => {
+        if (err) {
+          throw err;
+        }
+        dat = JSON.parse(data)
+        dat["articles"] = [];
+    });
 fs.readdir(path, async function(err, filenames) {
     if (err) {
       console.log(err);
@@ -60,11 +60,11 @@ fs.readdir(path, async function(err, filenames) {
     });
   });
 });
-callback();
+callback(dat);
 }
-readWrite(function () {wri()});
+readWrite(function (dat) {wri(dat)});
 
-function wri() {
+function wri(dat) {
 console.log(dat);
   const dataa = JSON.stringify(dat, null, 2);
   fs.writeFile(path_two, dataa, 'utf-8', (err) => {
