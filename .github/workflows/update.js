@@ -1,4 +1,5 @@
 const path = "./articles/"
+const path_two = "./routing.json"
 const fs = require('fs')
 const getTitle = require('get-md-title');
 const getDesc = require('get-md-desc');
@@ -21,3 +22,11 @@ fs.readdir(path, function(err, filenames) {
     });
   });
 
+
+ fs.readFile(path_two, 'utf-8', function(err, content) {
+        if (err) {
+          console.log(err);
+          return;
+        }
+        console.log(content)
+      });
