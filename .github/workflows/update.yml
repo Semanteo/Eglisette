@@ -31,9 +31,6 @@ jobs:
   
       - name: Run a one-line script
         run : npm install get-md-desc
-        
-      - name : Test
-        run : git ls-tree -r --name-only HEAD | ForEach-Object { "$(git log -1 --format="%ai" -- "$_")`t$_" }
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
