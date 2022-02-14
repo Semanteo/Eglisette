@@ -7,6 +7,7 @@ var title;
 var date;
 var img_path;
 var tags;
+var dat;
 
 const opts = {
   level: 1,
@@ -17,7 +18,13 @@ const md = require('markdown-it')()
   .use(require('markdown-it-title'), opts)
 const env = {}
 
-
+fs.readFile(path_two, 'utf-8', (err, data) => {
+    if (err) {
+      throw err;
+    }
+    dat = JSON.parse(data)
+    dat["articles"] = [];
+});
 
 fs.readdir(path, function(err, filenames) {
     if (err) {
@@ -40,30 +47,25 @@ fs.readdir(path, function(err, filenames) {
         tags = tags.split(":")
         tags = tags.shift()
         img_path = article.image.src;
-        fs.readFile(path_two, 'utf-8', (err, data) => {
-        if (err) {
-          throw err;
-        }
-        const dat = JSON.parse(data)
-        dat["articles"] = [];
         dat["articles"].push({
-     "date":`${date}`,
-     "description": `${desc}`,
-     "title": `${title}`,
-     "slug": `${title.toLowerCase().replace(" ","-").replace(" ","-").replace(" ","-").replace(" ","-")}`,
-     "image": `${img_path}`,
-     "url": `${path + filename} `,
-     "tags": tags.split(",")
-        });
-         let dataa = JSON.stringify(dat, null, 2);
-         console.log(dat["articles"])
-         fs.writeFile(path_two, dataa, 'utf-8', (err) => {
-          if (err) { 
-            throw err;
-          }
-          console.log('README update complete.');
-        });
-      });
+            "date":`${date}`,
+            "description": `${desc}`,
+            "title": `${title}`,
+            "slug": `${title.toLowerCase().replace(" ","-").replace(" ","-").replace(" ","-").replace(" ","-")}`,
+            "image": `${img_path}`,
+            "url": `${path + filename} `,
+            "tags": tags.split(",")
+               });
     });
   });
 });
+
+ 
+     let dataa = JSON.stringify(dat, null, 2);
+     console.log(dat["articles"])
+     fs.writeFile(path_two, dataa, 'utf-8', (err) => {
+      if (err) { 
+        throw err;
+      }
+      console.log('README update complete.');
+    });
