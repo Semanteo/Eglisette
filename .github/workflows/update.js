@@ -38,7 +38,10 @@ fs.readdir(path, function(err, filenames) {
         desc = env.excerpt[0];
         date = env.excerpt[2];
         tags = env.excerpt[3];
-        tags = tags.split(":").shift()
+        tags = tags.split(":")
+        console.log(tags.shift())
+        tags = tags.shift()
+        console.log(tags)
         console.log(tags.split(","))
         img_path = article.image.src;
           fs.readFile(path_two, 'utf-8', function(err, content) {
