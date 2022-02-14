@@ -61,7 +61,7 @@ fs.readdir(path, async function(err, filenames) {
   });
 });
 }
-readWrite()
+readWrite().then(wri());
 
 function wri() {
 console.log(dat);
@@ -73,4 +73,3 @@ console.log(dat);
    console.log('README update complete.');
  });
 }
-wri()
