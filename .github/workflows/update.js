@@ -59,14 +59,18 @@ fs.readdir(path, async function(err, filenames) {
                });
     });
   });
-  await console.log(dat);
+});
+}
+readWrite()
+
+function wri() {
+console.log(dat);
   const dataa = JSON.stringify(dat, null, 2);
-  await fs.writeFile(path_two, dataa, 'utf-8', (err) => {
+  fs.writeFile(path_two, dataa, 'utf-8', (err) => {
    if (err) { 
      throw err;
    }
    console.log('README update complete.');
  });
-});
 }
-readWrite()
+wri()
