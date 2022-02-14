@@ -55,7 +55,7 @@ fs.readdir(path, function(err, filenames) {
      "image": `${img_path}`,
      "url": `${path + filename} `,
      "tags": tags.split(",")
-        },);
+        });
          let data = JSON.stringify(dat, null, 2);
           console.log(dat["articles"])
               fs.writeFileSync(path_two, data, (err) => {
