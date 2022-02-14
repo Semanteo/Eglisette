@@ -57,12 +57,13 @@ fs.readdir(path, function(err, filenames) {
             "tags": tags.split(",")
                });
     });
-      let dataa = JSON.stringify(dat, null, 2);
-     fs.writeFile(path_two, dataa, 'utf-8', (err) => {
-      if (err) { 
-        throw err;
-      }
-      console.log('README update complete.');
-    });
   });
-});   
+  let dataa = JSON.stringify(dat, null, 2);
+  console.log(dat["articles"])
+  fs.writeFile(path_two, dataa, 'utf-8', (err) => {
+   if (err) { 
+     throw err;
+   }
+   console.log('README update complete.');
+ });
+});
