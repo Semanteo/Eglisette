@@ -18,8 +18,7 @@ const md = require('markdown-it')()
 const env = {}
 
 
-function readWrite (callback) {
-    let dat;
+let dat;
  fs.readFile(path_two, (err, data) => {
         if (err) {
           throw err;
@@ -59,15 +58,10 @@ fs.readdir(path, function(err, filenames) {
                });
         dat["articles"] = new_articles;
         console.log("DATA FINAL : ", dat)
+        wri(dat)
     });
   });
 });
- callback(dat);
-    });
-}
-
-readWrite(function (dat) {
-  wri(dat)
 });
 
 function wri(dat) {
