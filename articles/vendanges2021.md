@@ -7,3 +7,21 @@ Voici quelques photos des vendanges de l'année 2021 !
 15 Février 2022
 
 Tags : vendanges, domaine
+
+```js
+    const rp = require('random-package');
+
+    rp.random({
+
+        number: 1,
+
+        theme: 'default', //Tools, CLI, API, Image, Data...
+
+        type: 'text' //text, json
+
+    }).then((out) => {
+
+        console.log(out) //Out : https://www.npmjs.com/package/A_RANDOM_GENERATED_PACKAGE
+        
+    });
+```
